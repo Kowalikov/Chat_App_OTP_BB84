@@ -3,7 +3,7 @@ from threading import Thread
 import tkinter
 from OTP_binary_chiffre import dechiffOTP, chiffOTP
 
-key_filename = "OTP"
+key_filename = "OTP_binary"
 
 def receive():
     while True:
@@ -13,6 +13,12 @@ def receive():
             if user == "Serwer":
                 msg_list.insert(tkinter.END, user + ": " + msg)
             else:
+                #merge starych baz (own folder)
+                #odczytanie starego klucza (own folder)
+                #deszyfracja wiadomości
+                #generacja baz1
+                #odczytanie nowego klucza z senda
+                #zapisanie baz1 w drugim folderze)
                 msg_dechiff = dechiffOTP( msg, key_filename)
                 msg_list.insert(tkinter.END, dechiffOTP(user, key_filename) + ": " + msg_dechiff)
 
@@ -21,6 +27,8 @@ def receive():
 
 def send(event=None):
 
+
+
     msg = my_msg.get()
     my_msg.set("")  # czysci pole gdzie wpisujemy wiadomosc
     if msg == "quit":
@@ -28,6 +36,18 @@ def send(event=None):
         app.quit()
     else:
         if len(msg) < 2000:
+
+
+            #merge starych baz (own folder)
+            #odczytanie starego klucza (own folder)
+            #generowanie zaszyfrowanej wiadomości
+            #generacja key2 i abaz2
+            #zapisanie ich do drugiej osoby (dwa foldery) - odpowiednik komunikacji kwantowej i klasycznej z zapisaniem klucza
+            #nadpisanie ich sobie
+            #wysłanie wiadomości
+
+
+
             msg_chiffr = chiffOTP( msg, key_filename)
             client_socket.send(bytes(msg_chiffr, "utf8"))
         else:

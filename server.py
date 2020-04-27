@@ -3,7 +3,7 @@ from threading import Thread
 import random
 from OTP_binary_chiffre import dechiffOTP, chiffOTP
 
-key_filename = "OTP"
+key_filename = "OTP_binary"
 
 def generate_OTP():
 

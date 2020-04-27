@@ -14,4 +14,14 @@ print(key)
 f.write(key)
 f.close()
 
+#generowanie klucza binarnego
+f = open("OTP_binary", "w")
 
+# generowanie klucza
+key = ""
+for i in range(16000):
+    x = random.randint(0, 128)
+    key += str(x)+" "
+
+f.write(key)
+f.close()
